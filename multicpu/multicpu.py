@@ -30,7 +30,7 @@ class Multicpu():
         return result 
 
 def _func(argv):
-    argv[2][argv[3]] = round((argv[4]*100.0/argv[5]), 2)
+    argv[2][argv[3]] = round((argv[4]*100.0//argv[5]), 2)
     sys.stdout.write(str(argv[2])+' ||'+'->'+"\r")    
     sys.stdout.flush()
     return argv[0](argv[1])
@@ -61,7 +61,7 @@ def get_index(job_queue, split_num):
 
     if job_num < split_num:
         split_num = job_num
-    each_num = job_num/split_num
+    each_num = job_num//split_num
     
     index = [ [i*each_num, i*each_num+each_num-1] for i in range(split_num)]
     
